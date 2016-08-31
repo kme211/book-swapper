@@ -4,6 +4,7 @@ import { Router, browserHistory, Route, IndexRoute } from 'react-router';
 import App from './components/App';
 import HomePage from './components/home/HomePage';
 import AccountPage from './components/account/AccountPage';
+import './styles/styles.css';
 
 render(
   <Router history={browserHistory}>
