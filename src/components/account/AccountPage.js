@@ -13,6 +13,6 @@ class AccountPage extends React.Component {
 }
 
 AccountPage.propTypes = {
-}
+};
 
 export default AccountPage;
