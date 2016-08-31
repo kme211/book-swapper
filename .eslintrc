@@ -5,7 +5,8 @@
     "plugin:import/warnings"
   ],
   "plugins": [
-    "react"
+    "react",
+    "jsx-a11y"
   ],
   "parserOptions": {
     "ecmaVersion": 6,
@@ -61,9 +62,16 @@
     "react/prefer-es6-class": 1,
     "react/prop-types": 1,
     "react/react-in-jsx-scope": 1,
-    "react/require-extension": 1,
     "react/self-closing-comp": 1,
     "react/sort-comp": 1,
-    "react/wrap-multilines": 1
+    "react/jsx-wrap-multilines": 1,
+    "jsx-a11y/html-has-lang": 1,
+    "jsx-a11y/label-has-for": 1,
+    "jsx-a11y/aria-props": 1,
+    "jsx-a11y/aria-proptypes": 1,
+    "jsx-a11y/aria-unsupported-elements": 1,
+    "jsx-a11y/heading-has-content": 1,
+    "jsx-a11y/img-has-alt": 1,
+    "jsx-a11y/img-redundant-alt": 1
   }
 }
