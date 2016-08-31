@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import BookList from '../books/BookList';
+import mockBookData from '../books/mockBookData';
 
 class HomePage extends React.Component {
   constructor(props, context) {
@@ -7,7 +9,10 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <h1>Home Page</h1>
+      <div>
+        <h2>Home Page</h2>
+        <BookList books={mockBookData} />
+      </div>
     );
   }
 }
