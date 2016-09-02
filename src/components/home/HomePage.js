@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import BookList from '../books/BookList';
-import mockBookData from '../books/mockBookData';
+import mockBookData from '../../api/mockBookData';
 
 class HomePage extends React.Component {
   constructor(props, context) {
