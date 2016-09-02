@@ -1,0 +1,38 @@
+.main-header {
+  &__inner {
+    max-width: 960px;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  & h1 {
+    font-size: 22px;
+  }
+
+  &__title {
+    display: inline-block;
+    margin-left: 1rem;
+  }
+
+  &__menu-item-outer {
+    list-style: none;
+    display: inline-block;
+  }
+
+  &__menu-item {
+    display: block;
+    text-decoration: none;
+    color: $default-font-color;
+    padding: 1rem;
+    border-bottom: 2px solid white;
+    transition: all 0.4s ease;
+
+    &:hover {
+      background-color: #F8F8F8;
+      border-bottom: 2px solid #4275F4;
+    }
+  }
+}

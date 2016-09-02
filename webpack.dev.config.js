@@ -1,4 +1,6 @@
 const path = require('path');
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   debug: true,
@@ -15,7 +17,10 @@ module.exports = {
   module: {
    loaders: [
      {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel']},
-     {test: /(\.css)$/, loaders: ['style', 'css']},
+     {test: /(\.css)$/, loaders: ['style', 'css', 'postcss']},
    ]
-  }
-}
+  },
+    postcss: function () {
+        return [precss, autoprefixer];
+    }
+};

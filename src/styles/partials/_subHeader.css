@@ -1,0 +1,28 @@
+.sub-header {
+  color: $default-font-color;
+  background-color: #F8F8F8;
+  margin-bottom: 1rem;
+
+  & h2 {
+    font-size: 18px;
+  }
+
+  &__inner {
+    max-width: 960px;
+    position: relative;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+}
+
+.section-header {
+  font-family: 'Lato', sans-serif;
+  margin: 1.5em 0 .5em 0;
+  text-align: center;
+
+  & h2 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+}
