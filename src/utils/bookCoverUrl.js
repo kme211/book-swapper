@@ -1,4 +1,4 @@
-import replaceAll from '../../utils/replaceAll';
+import replaceAll from './replaceAll';
 
 // https://openlibrary.org/dev/docs/api/covers
 

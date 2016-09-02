@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import coverUrl from './bookCoverUrl';
+import coverUrl from '../../utils/bookCoverUrl';
 
 const Book = (props) => {
   const {title, author, isbn, desc, availability, link} = props;
