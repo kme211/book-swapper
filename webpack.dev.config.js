@@ -1,4 +1,5 @@
 const path = require('path');
+const atImport = require("postcss-import");
 const precss = require('precss');
 const autoprefixer = require('autoprefixer');
 
@@ -20,7 +21,13 @@ module.exports = {
      {test: /(\.css)$/, loaders: ['style', 'css', 'postcss']},
    ]
   },
-    postcss: function () {
-        return [precss, autoprefixer];
-    }
+  postcss: function (webpack) {
+      return [
+        atImport({
+          addDependencyTo: webpack
+        }),
+        precss,
+        autoprefixer
+    ];
+  }
 };
