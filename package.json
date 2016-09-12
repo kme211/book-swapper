@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "App for swapping books with neighbors",
   "scripts": {
-    "test": "mocha --reporter nyan --require babel-register \"src/**/*.test.js\"",
+    "test": "mocha --reporter spec tools/testSetup.js --require babel-register \"src/**/*.test.js\"",
     "dev": "webpack-dev-server --config webpack.dev.config.js --quiet --hot --inline",
     "start": "npm-run-all --parallel dev lint:watch",
     "lint": "node_modules/.bin/esw webpack.config.* src",
@@ -14,6 +14,7 @@
   "repository": "https://github.com/kme211/book-swapper.git",
   "dependencies": {
     "babel-polyfill": "^6.13.0",
+    "lodash": "^4.15.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-redux": "^4.4.5",
@@ -40,10 +41,13 @@
     "eslint-watch": "^2.1.14",
     "expect": "^1.20.2",
     "html-webpack-plugin": "^2.22.0",
+    "jsdom": "^9.5.0",
     "mocha": "^3.0.2",
     "npm-run-all": "^3.0.0",
+    "postcss-import": "^8.1.2",
     "postcss-loader": "^0.11.1",
     "precss": "^1.4.0",
+    "react-addons-test-utils": "^15.3.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.0"

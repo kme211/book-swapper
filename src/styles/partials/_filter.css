@@ -1,0 +1,50 @@
+.filter {
+  transition: max-height 0.8s ease;
+  background-color: white;
+  width: 100%;
+  max-height: 2em;
+  padding: 0 1em 1em 1em;
+  overflow: hidden;
+
+
+  &.show {
+    max-height: 300px;
+  }
+
+  &__button {
+    height: 2em;
+    margin-bottom: 1em;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: 1em;
+    transition: background-color 0.4s;
+  }
+
+  &__button.active {
+    background-color: #ccc;
+  }
+
+  &__contents {
+    list-style-type: none;
+    text-align: center;
+  }
+
+  &__tag {
+    background-color: white;
+    border-radius: 6px;
+    margin: 2px;
+    padding: 3px 8px;
+    display: inline-block;
+    color: #545454;
+    border: 1px dashed #545454;
+  }
+
+  &__tag.active {
+    color: black;
+    border: 1px solid #E6E6E6;
+    background-color: #E6E6E6;
+    text-decoration:none;
+  }
+}

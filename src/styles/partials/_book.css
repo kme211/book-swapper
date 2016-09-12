@@ -27,6 +27,20 @@
     color: red;
   }
 
+  &__categories {
+    margin: 6px 0;
+    font-size: .75em;
+    list-style: none;
+
+    & li {
+      background-color: #E6E6E6;
+      border-radius: 6px;
+      margin: 2px;
+      padding: 3px 8px;
+      display: inline-block;
+    }
+  }
+
   &__cover {
     display: none;
   }

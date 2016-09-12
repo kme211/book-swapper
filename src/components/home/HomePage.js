@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import BookList from '../books/BookList';
+import Filter from '../books/Filter';
 import mockBookData from '../../api/mockBookData';
 
 class HomePage extends React.Component {
@@ -8,6 +9,8 @@ class HomePage extends React.Component {
   }
 
   render() {
+
+
     return (
       <div>
         <div className="sub-header">

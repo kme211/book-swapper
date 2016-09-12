@@ -1,6 +1,7 @@
-@import "partials/colors";
-@import "partials/base";
-@import "partials/mainHeader";
-@import "partials/subHeader";
-@import "partials/bookList";
-@import "partials/book";
+@import "partials/_colors";
+@import "partials/_base";
+@import "partials/_mainHeader";
+@import "partials/_subHeader";
+@import "partials/_bookList";
+@import "partials/_filter";
+@import "partials/_book";
