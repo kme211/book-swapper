@@ -5,6 +5,7 @@ import App from './components/App';
 import HomePage from './components/home/HomePage';
 import AccountPage from './components/account/AccountPage';
 import './styles/styles.css';
+import 'font-awesome/css/font-awesome.css';
 
 render(
   <Router history={browserHistory}>

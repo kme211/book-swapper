@@ -2,13 +2,12 @@
   transition: max-height 0.8s ease;
   background-color: white;
   width: 100%;
-  max-height: 2em;
   padding: 0 1em 1em 1em;
   overflow: hidden;
 
 
-  &.show {
-    max-height: 300px;
+  &.show > &__content {
+    display: block;
   }
 
   &__button {
@@ -26,9 +25,28 @@
     background-color: #ccc;
   }
 
-  &__contents {
+  &__content {
+    display: none;
+    background: #eee;
+  }
+
+  &__header {
+    text-align: center;
+    padding: 1em 0;
+  }
+
+  &__list-categories {
     list-style-type: none;
     text-align: center;
+    padding-bottom: 1em;
+    margin-right: 1em;
+  }
+
+  &__list-tags {
+    list-style-type: none;
+    text-align: center;
+    padding-bottom: 1em;
+    margin: 0 1em;
   }
 
   &__tag {
@@ -39,12 +57,85 @@
     display: inline-block;
     color: #545454;
     border: 1px dashed #545454;
+    cursor: pointer;
   }
 
   &__tag.active {
-    color: black;
+    color: white;
     border: 1px solid #E6E6E6;
-    background-color: #E6E6E6;
+    background-color: #44C662;
     text-decoration:none;
+  }
+}
+
+.categories {
+  display: none;
+  list-style-type: none;
+  width: 100%;
+
+  &.show {
+    display: block;
+  }
+}
+
+.category__item {
+  cursor: pointer;
+  margin-bottom: 3px;
+  margin-left: 1em;
+}
+
+.category__head {
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.expand-collapse-btn {
+  font-size: 14px;
+  margin-left: 6px;
+  color: #eee;
+  border: none;
+  background-color: #6C737E;
+  border-radius: 4px;
+  padding: .25em .5em;
+
+  &__icon-chevron-down {
+    color: red;
+    font-awesome: chevron-down;
+  }
+
+  &__icon-chevron-up {
+    color: red;
+    font-awesome: chevron-up;
+  }
+}
+
+.category__name i {
+  margin-left: 0.5em;
+}
+
+.category__name, .category__head {
+  padding: .25em;
+}
+
+.category__name {
+  &.selected-none {
+    border-left: 6px solid #718CA1;
+    color: #718CA1;
+  }
+
+  &.selected-all {
+    border-left: 6px solid #44C662;
+    i {
+      color: #44C662;
+    }
+  }
+
+  &.selected-some {
+    border-left: 6px solid #00ADB5;
+    i {
+      color: #00ADB5;
+    }
   }
 }
