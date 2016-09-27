@@ -16,3 +16,8 @@ html {
 h1 {
   font-family: 'Bitter', serif;
 }
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
