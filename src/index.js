@@ -1,18 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, browserHistory, Route, IndexRoute } from 'react-router';
-import App from './components/App';
-import HomePage from './components/home/HomePage';
-import AccountPage from './components/account/AccountPage';
+import routes from './routes';
 import './styles/styles.css';
 import 'font-awesome/css/font-awesome.css';
 
 render(
-  <Router history={browserHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={HomePage}/>
-      <Route path="account" component={AccountPage}/>
-    </Route>
-  </Router>,
+  <Router history={browserHistory} routes={routes}/>,
   document.getElementById('app')
 );
