@@ -1,4 +1,5 @@
 import delay from './delay';
+import bookApi from './mockBookApi';
 
 const users = [
   {
@@ -63,9 +64,24 @@ class UserApi {
   static getUser(id) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(Object.assign({}, users.find(author => author.id === id)))
+        const user = users.find(author => author.id === id);
+        if(user) {
+          const bookReqs = user.books.map(book => {
+            return bookApi.getBook(book.id);
+          });
+
+          Promise.all(bookReqs).then(books => {
+            user.books = user.books.map(book => {
+              return books.find(b => b.id === book.id);
+            });
+            resolve(Object.assign({}, user));
+          });
+
+        } else {
+          reject('User not found.');
+        }
       }, delay);
-    })
+    });
   }
 }
 

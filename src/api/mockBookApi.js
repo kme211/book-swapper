@@ -118,7 +118,12 @@ class bookApi {
   static getBook(id) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(Object.assign({}, books.find(book => book.id === id)));
+        const book =  books.find(book => book.id === id);
+        if(book) {
+          resolve(Object.assign({},book));
+        } else {
+          reject('Book not found.');
+        }
       }, delay);
     });
   }
