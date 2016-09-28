@@ -93,7 +93,7 @@ class BookList extends React.Component {
     });
 
     return (
-      <div>
+      <div className="container"> 
         <div className="sub-header">
           <div className="sub-header__inner">
             <h2>All books</h2>
