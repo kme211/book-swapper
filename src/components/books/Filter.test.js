@@ -8,14 +8,15 @@ describe('<Filter/>', () => {
   it('displays a <FilterTag/> for each tag passed in props', () => {
     const props = {
       show: true,
-      tags: ['Fiction', 'Literary', 'Non-fiction'],
+      tags: ['mars', 'androids', 'desert'],
+      categories: ['Fiction / Science Fiction / General', 'Fiction / Action & Adventure'],
       filters: {
-        'Fiction': 'show',
-        'Literary': 'show',
-        'Non-fiction': 'hide'
+        tags: [{tag: 'mars', show: true}, {tag: 'androids', show: true}, {tag: 'desert', show: true}],
+        categories:  [{path: 'Fiction / Science Fiction / General', show: true}, {path: 'Fiction / Action & Adventure', show: true}]
       },
       onButtonClick() {},
-      onTagClick() {}
+      onTagClick() {},
+      onCategoryClick() {}
     };
 
     const wrapper = mount(<Filter {...props}/>);
@@ -25,14 +26,15 @@ describe('<Filter/>', () => {
   it('has the "show" class when "show" is true in props', () => {
     const props = {
       show: true,
-      tags: ['Fiction', 'Literary', 'Non-fiction'],
+      tags: ['mars', 'androids'],
+      categories: ['Fiction / Science Fiction / General', 'Fiction / Action & Adventure'],
       filters: {
-        'Fiction': 'show',
-        'Literary': 'show',
-        'Non-fiction': 'show'
+        tags: [{tag: 'mars', show: true}, {tag: 'androids', show: true}],
+        categories:  [{path: 'Fiction / Science Fiction / General', show: true}, {path: 'Fiction / Action & Adventure', show: true}]
       },
       onButtonClick() {},
-      onTagClick() {}
+      onTagClick() {},
+      onCategoryClick() {}
     };
 
     const wrapper = shallow(<Filter {...props}/>);
@@ -42,14 +44,15 @@ describe('<Filter/>', () => {
   it('does not have the "show" class when "show" is false in props', () => {
     const props = {
       show: false,
-      tags: ['Fiction', 'Literary', 'Non-fiction'],
+      tags: ['mars', 'androids'],
+      categories: ['Fiction / Science Fiction / General', 'Fiction / Action & Adventure'],
       filters: {
-        'Fiction': 'show',
-        'Literary': 'show',
-        'Non-fiction': 'show'
+        tags: [{tag: 'mars', show: true}, {tag: 'androids', show: true}],
+        categories:  [{path: 'Fiction / Science Fiction / General', show: true}, {path: 'Fiction / Action & Adventure', show: true}]
       },
       onButtonClick() {},
-      onTagClick() {}
+      onTagClick() {},
+      onCategoryClick() {}
     };
 
     const wrapper = shallow(<Filter {...props}/>);
@@ -59,14 +62,15 @@ describe('<Filter/>', () => {
   it('should add "active" class only to the FilterTags that are set to "show" in filters', () => {
     const props = {
       show: false,
-      tags: ['Fiction', 'Literary', 'Non-fiction'],
+      tags: ['mars', 'desert', 'androids'],
+      categories: ['Fiction / Science Fiction / General', 'Fiction / Action & Adventure'],
       filters: {
-        'Fiction': 'show',
-        'Literary': 'show',
-        'Non-fiction': 'hide'
+        tags: [{tag: 'mars', show: true}, {tag: 'desert', show: true}, {tag: 'androids', show: false}],
+        categories:  [{path: 'Fiction / Science Fiction / General', show: true}, {path: 'Fiction / Action & Adventure', show: true}]
       },
       onButtonClick() {},
-      onTagClick() {}
+      onTagClick() {},
+      onCategoryClick() {}
     };
 
     const wrapper = mount(<Filter {...props}/>);
