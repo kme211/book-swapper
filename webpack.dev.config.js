@@ -5,8 +5,11 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
   debug: true,
-  devtool: 'cheap-module-eval-source-map',
-  entry: './src/index.js',
+  devtool: '#inline-source-map',
+  entry: [
+    'webpack-hot-middleware/client?reload=true',
+    './src/index.js'
+  ],
   devServer: {
     contentBase: './src'
   },
