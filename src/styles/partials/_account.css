@@ -1,0 +1,13 @@
+.account-info {
+  padding: 1rem;
+}
+
+.account-info {
+  &__label {
+    font-weight: bolder;
+  }
+
+  &__item {
+    margin-bottom: 0.5rem;
+  }
+}
