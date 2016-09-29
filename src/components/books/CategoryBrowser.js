@@ -6,10 +6,18 @@ class CategoryBrowser extends React.Component {
     super(props, context);
 
     this.state = {
-      data: this.props.categories.map(c => Object.assign({}, c, {expanded: false, selected: true}))
+      data: []
     };
 
     this.categoryClickHandler = this.categoryClickHandler.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.categories.length > this.props.categories.length) {
+      this.setState({
+        data: nextProps.categories.map(c => Object.assign({}, c, {expanded: false, selected: true}))
+      });
+    }
   }
 
   categoryClickHandler(o) {
@@ -44,7 +52,6 @@ class CategoryBrowser extends React.Component {
   }
 
   render() {
-
     return (
       <ul className="categories show">
         {this.state.data.filter(c => c.parentId === null).map(c => {

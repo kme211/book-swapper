@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import BookList from '../books/BookList';
 import Filter from '../books/Filter';
-import mockBookData from '../../api/mockBookData';
 
 class HomePage extends React.Component {
   constructor(props, context) {
@@ -14,7 +13,7 @@ class HomePage extends React.Component {
     return (
       <div>
         <section>
-          <BookList books={mockBookData} />
+          <BookList/>
         </section>
 
       </div>

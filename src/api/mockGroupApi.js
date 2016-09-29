@@ -12,6 +12,14 @@ const groups = [
       {id: 'estes'},
       {id: 'lamey'}
     ]
+  }, {
+    id: 'mlink',
+    name: 'MLink Technologies',
+    users: [
+      {id: 'lamey'},
+      {id: 'jamie'},
+      {id: 'everett'}
+    ]
   }
 ];
 

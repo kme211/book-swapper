@@ -1,0 +1,6 @@
+// Users
+export const LOAD_USER_SUCCESS = 'LOAD_USER_SUCCESS';
+// Groups
+export const LOAD_GROUP_SUCCESS = 'LOAD_GROUP_SUCCESS';
+// Books
+export const CREATE_BOOK_SUCCESS = 'CREATE_BOOK_SUCCESS';
