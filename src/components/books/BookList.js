@@ -73,7 +73,6 @@ class BookList extends React.Component {
 
   showBook(bookTags, bookCategories) {
     let {categories, tags} = this.state;
-    console.log('tags', tags)
     for(let i = 0; i < bookTags.length; i++) {
       let tag = tags.find(c => c.tag === bookTags[i]);
       if(tag.show) return true;
@@ -88,7 +87,6 @@ class BookList extends React.Component {
   }
 
   render() {
-    console.log('render BookList')
     const books = this.props.books.map((book, index) => {
       const {title, author, industryIdentifiers, tags, categories, desc, availability, link} = book;
       //const tags = getUniqueTags(categories);
