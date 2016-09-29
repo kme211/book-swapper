@@ -6,10 +6,7 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
   debug: true,
   devtool: '#inline-source-map',
-  entry: [
-    'webpack-hot-middleware/client?reload=true',
-    './src/index.js'
-  ],
+  entry: './src/index.js',
   devServer: {
     contentBase: './src'
   },
