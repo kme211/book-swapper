@@ -2,9 +2,8 @@
   transition: max-height 0.8s ease;
   background-color: white;
   width: 100%;
-  padding: 0 1em 1em 1em;
   overflow: hidden;
-
+  margin: 0 0 1rem 0;
 
   &.show > &__content {
     display: block;
@@ -19,6 +18,7 @@
     font-family: inherit;
     font-size: 1em;
     transition: background-color 0.4s;
+    cursor: pointer;
   }
 
   &__button.active {

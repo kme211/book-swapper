@@ -6,7 +6,7 @@ class CategoryBrowser extends React.Component {
     super(props, context);
 
     this.state = {
-      data: []
+      data: this.props.categories.length ? this.props.categories.map(c => Object.assign({}, c, {expanded: false, selected: true})) : []
     };
 
     this.categoryClickHandler = this.categoryClickHandler.bind(this);

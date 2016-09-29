@@ -2,17 +2,8 @@
   color: $default-font-color;
   background-color: #F8F8F8;
   margin-bottom: 1rem;
-
-  & h2 {
-    font-size: 18px;
-  }
-
-  &__inner {
-    max-width: 960px;
-    position: relative;
-    margin: 0 auto;
-    padding: 1rem;
-  }
+  padding: 1rem;
+  font-size: 18px;
 }
 
 .section-header {

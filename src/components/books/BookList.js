@@ -18,8 +18,8 @@ class BookList extends React.Component {
 
     this.state = {
       showFilters: false,
-      tags: [],
-      categories: []
+      tags: this.props.tags.length ? this.props.tags.map(tag => Object.assign({}, {tag: tag, show: true})) : [],
+      categories: this.props.categories.length ? this.props.categories.map(category => Object.assign({}, {path: category, show: true})) : []
     };
 
     this.onFilterButtonClick = this.onFilterButtonClick.bind(this);
@@ -73,6 +73,7 @@ class BookList extends React.Component {
 
   showBook(bookTags, bookCategories) {
     let {categories, tags} = this.state;
+    console.log('tags', tags)
     for(let i = 0; i < bookTags.length; i++) {
       let tag = tags.find(c => c.tag === bookTags[i]);
       if(tag.show) return true;
@@ -87,6 +88,7 @@ class BookList extends React.Component {
   }
 
   render() {
+    console.log('render BookList')
     const books = this.props.books.map((book, index) => {
       const {title, author, industryIdentifiers, tags, categories, desc, availability, link} = book;
       //const tags = getUniqueTags(categories);
@@ -108,11 +110,7 @@ class BookList extends React.Component {
 
     return (
       <div className="container">
-        <div className="sub-header">
-          <div className="sub-header__inner">
-            <h2>All books</h2>
-          </div>
-        </div>
+        <h2 className="sub-header">All books</h2>
         <Filter
           show={this.state.showFilters}
           tags={this.props.tags}
