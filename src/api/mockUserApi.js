@@ -44,7 +44,8 @@ const users = [
       {id: 'we-need-to-talk'}
     ],
     groups: [
-      'meadowbrook'
+      'meadowbrook',
+      'mlink'
     ]
   },{
     id: 'estes',
@@ -56,6 +57,28 @@ const users = [
     ],
     groups: [
       'meadowbrook'
+    ]
+  },{
+    id: 'jamie',
+    firstName: 'Kaylee',
+    lastName: 'Fox',
+    email: 'kaylee.fox73@example.com',
+    books: [
+      {id: 'me-talk-pretty-one-day'}
+    ],
+    groups: [
+      'mlink'
+    ]
+  },{
+    id: 'everett',
+    firstName: 'Lesa',
+    lastName: 'Warren',
+    email: 'lesa.warren34@example.com',
+    books: [
+      {id: 'programming-javaScript-applications'}
+    ],
+    groups: [
+      'mlink'
     ]
   }
 ];
@@ -82,6 +105,10 @@ class UserApi {
         }
       }, delay);
     });
+  }
+
+  static saveBook(book) {
+
   }
 }
 

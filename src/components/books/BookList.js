@@ -1,4 +1,7 @@
 import React, { PropTypes } from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {groupBooks} from '../../selectors/selectors';
 import Book from './Book';
 import Filter from './Filter';
 import truncateText from '../../utils/truncateText';
@@ -7,23 +10,34 @@ import flatten from 'lodash/flatten';
 import uniq from 'lodash/uniq';
 import flatMap from 'lodash/flatMap';
 import escape from 'lodash/escape';
+import uniqBy from 'lodash/uniqBy';
 
 class BookList extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    this.allCategories = uniq(flatMap(this.props.books, book => book.categories));
-    this.allTags = flatMap(this.props.books, book => book.tags);
-
     this.state = {
       showFilters: false,
-      tags: this.allTags.map(tag => Object.assign({}, {tag: tag, show: true})),
-      categories: this.allCategories.map(category => Object.assign({}, {path: category, show: true}))
+      tags: [],
+      categories: []
     };
 
     this.onFilterButtonClick = this.onFilterButtonClick.bind(this);
     this.onFilterTagClick = this.onFilterTagClick.bind(this);
     this.onFilterCategoryClick = this.onFilterCategoryClick.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.tags.length > this.props.tags.length) {
+      this.setState({
+        tags: nextProps.tags.map(tag => Object.assign({}, {tag: tag, show: true}))
+      });
+    }
+    if(nextProps.categories.length > this.props.categories.length) {
+      this.setState({
+        categories: nextProps.categories.map(category => Object.assign({}, {path: category, show: true}))
+      });
+    }
   }
 
   onFilterCategoryClick(newData) {
@@ -93,7 +107,7 @@ class BookList extends React.Component {
     });
 
     return (
-      <div className="container"> 
+      <div className="container">
         <div className="sub-header">
           <div className="sub-header__inner">
             <h2>All books</h2>
@@ -101,8 +115,8 @@ class BookList extends React.Component {
         </div>
         <Filter
           show={this.state.showFilters}
-          tags={this.allTags}
-          categories={this.allCategories}
+          tags={this.props.tags}
+          categories={this.props.categories}
           filters={Object.assign({}, {tags: this.state.tags, categories: this.state.categories})}
           onButtonClick={this.onFilterButtonClick}
           onTagClick={this.onFilterTagClick}
@@ -117,7 +131,21 @@ class BookList extends React.Component {
 }
 
 BookList.propTypes = {
-  books: React.PropTypes.array.isRequired
+  books: React.PropTypes.array.isRequired,
+  tags: React.PropTypes.array.isRequired,
+  categories: React.PropTypes.array.isRequired
 };
 
-export default BookList;
+function mapStateToProps(state) {
+  const books = uniqBy(flatten(state.groups.map(group => groupBooks(group))), 'id');
+  const categories = uniq(flatMap(books, book => book.categories));
+  const tags = flatMap(books, book => book.tags);
+
+  return {
+    books,
+    categories,
+    tags,
+  };
+}
+
+export default connect(mapStateToProps)(BookList);
