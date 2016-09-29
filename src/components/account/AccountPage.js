@@ -27,7 +27,7 @@ class AccountPage extends React.Component {
               {this.props.user.books && this.props.user.books.map((book, index) => <li className="account-info__book" key={index}>{book.title}</li>)}
             </ul>
           </div>
-      </div>
+        </div>
       </div>
     );
   }
