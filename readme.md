@@ -2,14 +2,21 @@
 
 An app I'm working on to share books with neighbors.
 
-## TODO
+## To do
+- Create book detail page
+- Create group page
+- Add functionality to add books
+- Add book requesting/messaging functionality
+- Add MongoDB/Mongoose
+- Add authentication ([Auth0](https://auth0.com/) maybe)
+
+## In progress
+- Build out user account/dashboard page
+
+## Done
 - ~~Setup Webpack for dev~~
 - ~~Add React Router~~
 - ~~Create some mock book data~~
 - ~~Add filtering~~
-- Create mock backend (or use [JSON Server](https://github.com/typicode/json-server))
-- Add Redux
-- Build out user account/dashboard page
-- Add book requesting/messaging functionality
-- Add MongoDB/Mongoose
-- Add authentication ([Auth0](https://auth0.com/) maybe)
+- ~~Create mock backend~~
+- ~~Add Redux~~
