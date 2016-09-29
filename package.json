@@ -4,7 +4,7 @@
   "description": "App for swapping books with neighbors",
   "scripts": {
     "test": "mocha --reporter spec tools/testSetup.js --require babel-register \"src/**/*.test.js\"",
-    "dev": "webpack-dev-server --config webpack.dev.config.js --quiet --hot --inline",
+    "dev": "webpack-dev-server --config webpack.dev.config.js --quiet --hot --inline --history-api-fallback",
     "start": "npm-run-all --parallel dev lint:watch",
     "lint": "node_modules/.bin/esw webpack.config.* src",
     "lint:watch": "npm run lint -- --watch"
