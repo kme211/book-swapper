@@ -5,11 +5,9 @@ import {groupBooks} from '../../selectors/selectors';
 import Book from './Book';
 import Filter from './Filter';
 import truncateText from '../../utils/truncateText';
-import getUniqueTags from '../../utils/getUniqueTags';
 import flatten from 'lodash/flatten';
 import uniq from 'lodash/uniq';
 import flatMap from 'lodash/flatMap';
-import escape from 'lodash/escape';
 import uniqBy from 'lodash/uniqBy';
 
 class BookList extends React.Component {
@@ -89,7 +87,6 @@ class BookList extends React.Component {
   render() {
     const books = this.props.books.map((book, index) => {
       const {title, author, industryIdentifiers, tags, categories, desc, availability, link} = book;
-      //const tags = getUniqueTags(categories);
       if(!this.showBook(tags, categories)) {
         return null;
       }
