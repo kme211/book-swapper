@@ -3,7 +3,6 @@
 An app I'm working on to share books with neighbors.
 
 ## To do
-- Create book detail page
 - Create group page
 - Add functionality to add books
 - Add book requesting/messaging functionality
@@ -12,6 +11,7 @@ An app I'm working on to share books with neighbors.
 
 ## In progress
 - Build out user account/dashboard page
+- Create book detail page
 
 ## Done
 - ~~Setup Webpack for dev~~

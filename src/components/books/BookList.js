@@ -82,13 +82,14 @@ class BookList extends React.Component {
 
   render() {
     const books = this.props.books.map((book, index) => {
-      const {title, author, industryIdentifiers, tags, categories, desc, availability, link} = book;
+      const {id, title, author, industryIdentifiers, tags, categories, desc, availability, link} = book;
       if(!this.showBook(tags, categories)) {
         return null;
       }
       return (
         <Book
         key={index}
+        id={id}
         author={author}
         title={title}
         tags={tags}
