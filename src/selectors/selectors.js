@@ -1,7 +1,26 @@
+import { createSelector } from 'reselect';
 import flatMap from 'lodash/flatMap';
+import uniq from 'lodash/uniq';
+import uniqBy from 'lodash/uniqBy';
 
-export function groupBooks(group) {
-  return flatMap(group.users, user => user.books);
-}
+const groupsSelector = state => state.groups;
 
-// TODO: Add selectors for getting all the tags and categories of the books
+const groupsUsersSelector = createSelector(
+  groupsSelector,
+  groups => flatMap(groups, group => group.users)
+);
+
+export const getGroupsBooks = createSelector(
+  groupsUsersSelector,
+  users => uniqBy(flatMap(users, user => user.books), 'id')
+);
+
+export const getGroupsCategories = createSelector(
+  getGroupsBooks,
+  books => uniq(flatMap(books, book => book.categories))
+);
+
+export const getGroupsTags = createSelector(
+  getGroupsBooks,
+  books => flatMap(books, book => book.tags)
+);

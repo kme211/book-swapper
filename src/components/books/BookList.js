@@ -1,14 +1,10 @@
 import React, { PropTypes } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {groupBooks} from '../../selectors/selectors';
+import {getGroupsBooks, getGroupsCategories, getGroupsTags} from '../../selectors/selectors';
 import Book from './Book';
 import Filter from './Filter';
 import truncateText from '../../utils/truncateText';
-import flatten from 'lodash/flatten';
-import uniq from 'lodash/uniq';
-import flatMap from 'lodash/flatMap';
-import uniqBy from 'lodash/uniqBy';
 
 class BookList extends React.Component {
   constructor(props, context) {
@@ -130,9 +126,15 @@ BookList.propTypes = {
 };
 
 function mapStateToProps(state) {
-  const books = uniqBy(flatten(state.groups.map(group => groupBooks(group))), 'id');
-  const categories = uniq(flatMap(books, book => book.categories));
-  const tags = flatMap(books, book => book.tags);
+  let books = [];
+  let categories = [];
+  let tags = [];
+
+  if(state.groups.length) {
+    books = getGroupsBooks(state);
+    categories = getGroupsCategories(state);
+    tags = getGroupsTags(state);
+  }
 
   return {
     books,
