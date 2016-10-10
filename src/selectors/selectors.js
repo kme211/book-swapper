@@ -5,13 +5,13 @@ import uniqBy from 'lodash/uniqBy';
 
 const groupsSelector = state => state.groups;
 
-const groupsUsersSelector = createSelector(
+export const getGroupsUsersSelector = createSelector(
   groupsSelector,
   groups => flatMap(groups, group => group.users)
 );
 
 export const getGroupsBooks = createSelector(
-  groupsUsersSelector,
+  getGroupsUsersSelector,
   users => uniqBy(flatMap(users, user => user.books), 'id')
 );
 

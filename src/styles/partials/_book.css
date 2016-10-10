@@ -19,11 +19,15 @@
     display: block;
   }
 
-  &__availability.available {
+  &__availability {
+    list-style-type: none;
+  }
+
+  &__status.available {
     color: green;
   }
 
-  &__availability.not-available {
+  &__status.not-available {
     color: red;
   }
 
