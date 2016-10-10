@@ -38,7 +38,7 @@ function mapStateToProps(state, props) {
   const bookId = props.params.id;
   let availability = [];
   let isFetching = true;
-  let book = {};
+  let book = {id: '', title: '', author: '', categories: [], tags: [], industryIdentifiers: [], desc: '', availability: [], link: ''};
 
   if(bookId && state.groups.length) {
     book = getBookById(getGroupsBooks(state), bookId);
