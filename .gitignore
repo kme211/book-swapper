@@ -1,3 +1,4 @@
 dist
 .jshintrc
 node_modules
+*.log
