@@ -1,5 +1,7 @@
 # Book Swapper (WIP)
 
+[![Dependency Status](https://dependencyci.com/github/kme211/book-swapper/badge)](https://dependencyci.com/github/kme211/book-swapper)
+
 An app I'm working on to share books with neighbors.
 
 ## To do
