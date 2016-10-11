@@ -9,7 +9,7 @@ const Book = (props) => {
     available = availability.find((obj) => obj.status.toLowerCase() === "available");
     tagList = tags.map((cat, index) => <li key={index}>{cat}</li>);
     formattedTitle = showDetails ? title : <Link to={'/book/' + id}>{title}</Link>;
-    availabilityElements = showDetails ? <ul className="book__availability">{availability.map((a, i) => <li key={i} className={"book__status " + (a.status === "available" ? "available" : "not-available")}>{a.owner.firstName} ({a.status})</li>)}</ul> : <span className={"book__status " + (available ? "available" : "not-available")}>{available ? "Available!" : "Not available"}</span>;
+    availabilityElements = showDetails ? <ul className="book__availability">{availability.map((a, i) => <li key={i} className={"book__status " + (a.status === "available" ? "available" : "not-available")}><Link to={'/user/' + a.owner.id}>{a.owner.firstName}</Link> ({a.status})</li>)}</ul> : <span className={"book__status " + (available ? "available" : "not-available")}>{available ? "Available!" : "Not available"}</span>;
     book = (
       <div className="book">
         <div className="book__meta">
