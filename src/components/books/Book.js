@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import {Link} from 'react-router';
 import coverUrl from '../../utils/bookCoverUrl';
+import Loader from '../common/Loader';
 
 const Book = (props) => {
   const {isFetching, id, title, author, industryIdentifiers, desc, tags, availability, link, showDetails} = props;
@@ -24,7 +25,7 @@ const Book = (props) => {
     );
   }
 
-  const component = isFetching ? <div>Fetching book</div> : book;
+  const component = isFetching ? <Loader message="Loading book"/> : book;
 
   return (
     <div>

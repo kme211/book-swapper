@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import Loader from '../common/Loader';
 
 const User = (props) => {
   const {id, firstName, lastName, books, isFetching} = props;
@@ -15,7 +16,7 @@ const User = (props) => {
     );
   } else {
     component = (
-      <div>Fetching user</div>
+      <Loader message="Loading user"/>
     );
   }
 
