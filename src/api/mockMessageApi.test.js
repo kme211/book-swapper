@@ -8,7 +8,8 @@ describe('mockMessageApi', () => {
       sender: 'vazques',
       timestamp: '1476220156018',
       body: 'Hi! I\'d like to borrow Red Rising from you.',
-      conversationId: 'convo0'
+      conversationId: 'convo0',
+      read: true
     };
 
     messageApi.getMessage('msg0').then(actual => {
@@ -24,14 +25,16 @@ describe('mockMessageApi', () => {
         sender: 'vazques',
         timestamp: '1476220156018',
         body: 'Hi! I\'d like to borrow Red Rising from you.',
-        conversationId: 'convo0'
+        conversationId: 'convo0',
+        read: true
       },
       {
         id: 'msg1',
         sender: 'clatterbuck',
         timestamp: '1476221078364',
         body: 'Sure! What day do you wanna pick it up?',
-        conversationId: 'convo0'
+        conversationId: 'convo0',
+        read: true
       }
     ];
 

@@ -13,7 +13,8 @@ describe('mockConversationApi', () => {
         sender: 'clatterbuck',
         timestamp: '1476221078364',
         body: 'Sure! What day do you wanna pick it up?',
-        conversationId: 'convo0'
+        conversationId: 'convo0',
+        read: true
       }
     }];
 
