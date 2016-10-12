@@ -11,7 +11,7 @@ describe('mockConversationApi', () => {
       lastMessage: {
         id: 'msg1',
         sender: 'clatterbuck',
-        timestamp: '1476221078364',
+        timestamp: 'Wed Oct 12 2016 12:17:03 GMT-0500 (Central Daylight Time)',
         body: 'Sure! What day do you wanna pick it up?',
         conversationId: 'convo0',
         read: true

@@ -4,7 +4,7 @@ const messages = [
   {
     id: 'msg0',
     sender: 'vazques',
-    timestamp: '1476220156018',
+    timestamp: 'Wed Oct 12 2016 12:16:37 GMT-0500 (Central Daylight Time)',
     body: 'Hi! I\'d like to borrow Red Rising from you.',
     conversationId: 'convo0',
     read: true
@@ -12,7 +12,7 @@ const messages = [
   {
     id: 'msg1',
     sender: 'clatterbuck',
-    timestamp: '1476221078364',
+    timestamp: 'Wed Oct 12 2016 12:17:03 GMT-0500 (Central Daylight Time)',
     body: 'Sure! What day do you wanna pick it up?',
     conversationId: 'convo0',
     read: true
@@ -20,7 +20,7 @@ const messages = [
   {
     id: 'msg2',
     sender: 'jamie',
-    timestamp: '1476223472556',
+    timestamp: 'Wed Oct 12 2016 12:17:15 GMT-0500 (Central Daylight Time)',
     body: 'Hi! I\'m new to the group and I noticed we like the same kind of books.',
     conversationId: 'convo1',
     read: true
@@ -28,7 +28,7 @@ const messages = [
   {
     id: 'msg3',
     sender: 'everett',
-    timestamp: '1476221078364',
+    timestamp: 'Wed Oct 12 2016 12:17:26 GMT-0500 (Central Daylight Time)',
     body: 'Hey, welcome! Yeah, looks like we do! Have you read Programming Javascript Applications yet?',
     conversationId: 'convo1',
     read: false
