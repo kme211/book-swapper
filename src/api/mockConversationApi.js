@@ -28,7 +28,7 @@ class ConversationApi {
         });
 
         Promise.all(messageReqs).then(messages => {
-          resolve(convos.map(convo => Object.assign({}, convo, {lastMessage: messages.find(m => m.conversationId === convo.id).body})));
+          resolve(convos.map(convo => Object.assign({}, convo, {lastMessage: messages.find(m => m.conversationId === convo.id)})));
         });
       }, delay);
     });

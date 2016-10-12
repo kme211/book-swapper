@@ -8,7 +8,13 @@ describe('mockConversationApi', () => {
       subject: 'Request to borrow Red Rising',
       participants: ['clatterbuck', 'vazques'],
       messages: ['msg0', 'msg1'],
-      lastMessage: 'Sure! What day do you wanna pick it up?'
+      lastMessage: {
+        id: 'msg1',
+        sender: 'clatterbuck',
+        timestamp: '1476221078364',
+        body: 'Sure! What day do you wanna pick it up?',
+        conversationId: 'convo0'
+      }
     }];
 
     conversationApi.getConversationsForUser('clatterbuck').then(actual => {
