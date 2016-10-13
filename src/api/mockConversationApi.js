@@ -13,6 +13,11 @@ const conversations = [
     subject: 'Hi',
     participants: ['jamie', 'everett'],
     messages: ['msg2', 'msg3']
+  }, {
+    id: 'convo2',
+    subject: 'Welcome',
+    participants: ['lamey', 'everett'],
+    messages: ['msg4', 'msg5']
   }
 ];
 

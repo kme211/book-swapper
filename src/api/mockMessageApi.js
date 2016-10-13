@@ -32,6 +32,22 @@ const messages = [
     body: 'Hey, welcome! Yeah, looks like we do! Have you read Programming Javascript Applications yet?',
     conversationId: 'convo1',
     read: false
+  },
+  {
+    id: 'msg4',
+    sender: 'lamey',
+    timestamp: 'Wed Oct 12 2016 10:17:15 GMT-0500 (Central Daylight Time)',
+    body: 'Hey, welcome to the group!',
+    conversationId: 'convo2',
+    read: true
+  },
+  {
+    id: 'msg5',
+    sender: 'everett',
+    timestamp: 'Thu Oct 13 2016 17:12:10 GMT-0500 (Central Daylight Time)',
+    body: 'Thanks!',
+    conversationId: 'convo2',
+    read: false
   }
 ];
 

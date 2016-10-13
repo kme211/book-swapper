@@ -60,33 +60,7 @@ MessagesPage.contextTypes = {
 function mapStateToProps(state) {
   return {
     user: state.user,
-    conversations: [{
-      id: 'convo0',
-      subject: 'Request to borrow Red Rising',
-      participants: ['clatterbuck', 'vazques'],
-      messages: ['msg0', 'msg1'],
-      lastMessage: {
-        id: 'msg1',
-        sender: 'clatterbuck',
-        timestamp: 'Wed Oct 12 2016 12:17:03 GMT-0500 (Central Daylight Time)',
-        body: 'Sure! What day do you wanna pick it up?',
-        conversationId: 'convo0',
-        read: false
-      }
-    }, {
-      id: 'convo1',
-      subject: 'Welcome!',
-      participants: ['clatterbuck', 'vazques'],
-      messages: ['msg0', 'msg1'],
-      lastMessage: {
-        id: 'msg4',
-        sender: 'vazques',
-        timestamp: 'Fri Aug 12 2016 00:00:00 GMT-0500 (Central Daylight Time)',
-        body: 'Hey, welcome to the group!',
-        conversationId: 'convo1',
-        read: true
-      }
-    }]
+    conversations: state.conversations
   };
 }
 

@@ -1,4 +1,5 @@
 export default {
   groups: [],
-  user: {}
+  user: {},
+  conversations: []
 };

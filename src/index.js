@@ -10,6 +10,7 @@ import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 import { loadUser } from './actions/userActions';
 import { loadGroup } from './actions/groupActions';
+import { loadConversationsForUser } from './actions/conversationActions';
 import './styles/styles.css';
 import 'font-awesome/css/font-awesome.css';
 
@@ -21,8 +22,9 @@ const unsubscribe = store.subscribe(() => {
     groups.forEach(group => {
       store.dispatch(loadGroup(group));
     });
-    unsubscribe();
   }
+  store.dispatch(loadConversationsForUser('lamey'));
+  unsubscribe();
 });
 
 render(
