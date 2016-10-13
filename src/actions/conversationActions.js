@@ -8,7 +8,6 @@ export function loadConversationsSuccess(conversations) {
 export function loadConversationsForUser(id) {
   return function(dispatch) {
     return conversationApi.getConversationsForUser(id).then(conversations => {
-      console.log('conversations', conversations)
       dispatch(loadConversationsSuccess(conversations));
     }).catch(err => {
       throw(err);
