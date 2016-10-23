@@ -1,10 +1,11 @@
 import React, {PropTypes} from 'react';
+import {Link} from 'react-router';
 
 const ConversationRow = (props) => {
   return (
     <tr>
       <td>{props.participant} </td>
-      <td>{props.subject} </td>
+      <td><Link to={'message/' + props.id}>{props.subject}</Link> </td>
       <td>{props.lastMessageBody} </td>
       <td>{props.lastMessageTimestamp} </td>
       <td>{props.lastMessageReadStatus}</td>
@@ -13,6 +14,7 @@ const ConversationRow = (props) => {
 };
 
 ConversationRow.propTypes = {
+  id: PropTypes.string.isRequired,
   participant: PropTypes.string.isRequired,
   subject: PropTypes.string.isRequired,
   lastMessageBody: PropTypes.string.isRequired,

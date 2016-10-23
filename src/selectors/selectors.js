@@ -4,6 +4,7 @@ import uniq from 'lodash/uniq';
 import uniqBy from 'lodash/uniqBy';
 
 const groupsSelector = state => state.groups;
+const conversationsSelector = state => state.conversations;
 
 export const getGroupsUsersSelector = createSelector(
   groupsSelector,
@@ -24,3 +25,18 @@ export const getGroupsTags = createSelector(
   getGroupsBooks,
   books => flatMap(books, book => book.tags)
 );
+
+const getId = (state, props) => props.params.id;
+
+export const makeGetMessages = () => {
+  return createSelector(
+    [getId, conversationsSelector],
+    (id, conversations) => {
+      const conversation = conversations.find(convo => convo.id === id);
+      if(conversation) {
+        console.log('return messages from selector');
+        return conversation.messages;
+      }
+    }
+  );
+};

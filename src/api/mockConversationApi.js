@@ -33,7 +33,23 @@ class ConversationApi {
         });
 
         Promise.all(messageReqs).then(messages => {
-          resolve(convos.map(convo => Object.assign({}, convo, {lastMessage: messages.find(m => m.conversationId === convo.id)})));
+          resolve(convos.map(convo => Object.assign({}, convo, {messages: [messages.find(m => m.conversationId === convo.id)]})));
+        });
+      }, delay);
+    });
+  }
+
+  static getConversation(id) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const conversation = conversations.find(convo => convo.id === id);
+        if(!conversation) {
+          return reject('Conversation not found.');
+        }
+        const messageReqs = conversation.messages.map(msgId => messageApi.getMessage(msgId));
+
+        Promise.all(messageReqs).then(messages => {
+          resolve(Object.assign({}, conversation, {messages}));
         });
       }, delay);
     });

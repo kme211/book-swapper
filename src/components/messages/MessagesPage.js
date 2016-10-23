@@ -18,14 +18,16 @@ export class MessagesPage extends React.Component {
       <table>
         <tbody>
           {this.props.conversations.map((c, i) => {
+            const lastMessage = c.messages[c.messages.length-1];
             return  (
               <ConversationRow
                 key={c.id}
                 {...pick(c, ['subject'])}
+                id={c.id}
                 participant={c.participants.find(p => p !== this.props.user.id)}
-                lastMessageBody={c.lastMessage.body}
-                lastMessageTimestamp={timeSince(c.lastMessage.timestamp)}
-                lastMessageReadStatus={c.lastMessage.read ? 'Read' : 'Unread'}
+                lastMessageBody={lastMessage.body}
+                lastMessageTimestamp={timeSince(lastMessage.timestamp)}
+                lastMessageReadStatus={lastMessage.read ? 'Read' : 'Unread'}
               />
             );
           })}
