@@ -1,18 +1,6 @@
 import React, {PropTypes} from 'react';
 import styled from 'styled-components';
-
-const Sender = styled.h4`
-  color: red'
-`;
-
-const Body = styled.p`
-  margin: 0.5em 0;
-`;
-
-const Timestamp = styled.p`
-  color: gray;
-  font-size: 0.75em;
-`;
+import P from '../atoms/Paragraph';
 
 const Wrapper = styled.div`
   margin-bottom: 1em;
@@ -21,11 +9,9 @@ const Wrapper = styled.div`
 const Message = (props) => {
   return (
     <Wrapper>
-      <Sender>{props.sender}</Sender>
-      <Body>
-      {props.body}
-      </Body>
-      <Timestamp>{props.timestamp}</Timestamp>
+      <P>{props.sender}</P>
+      <P>{props.body}</P>
+      <P color="gray">{props.timestamp}</P>
     </Wrapper>
   );
 };
