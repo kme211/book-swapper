@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import {Link} from 'react-router';
-import coverUrl from '../../utils/bookCoverUrl';
-import Loader from '../common/Loader';
+import coverUrl from 'utils/bookCoverUrl';
+import Loader from 'components/common/Loader';
 
 const Book = (props) => {
   const {isFetching, id, title, author, industryIdentifiers, desc, tags, availability, link, showDetails} = props;

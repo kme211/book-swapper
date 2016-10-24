@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import BookList from '../books/BookList';
-import Filter from '../books/Filter';
+import BookList from 'components/books/BookList';
+import Filter from 'components/books/Filter';
 
 class HomePage extends React.Component {
   constructor(props, context) {

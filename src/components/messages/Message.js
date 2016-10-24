@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import styled from 'styled-components';
-import P from '../atoms/Paragraph';
+import P from 'components/atoms/Paragraph';
 
 const Wrapper = styled.div`
   margin-bottom: 1em;

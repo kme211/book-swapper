@@ -15,6 +15,9 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
+  resolve: {
+    modulesDirectories: ['src', 'node_modules']
+  },
   module: {
     loaders: [
       {

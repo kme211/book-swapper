@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Loader from '../common/Loader';
+import Loader from 'components/common/Loader';
 
 const User = (props) => {
   const {id, firstName, lastName, books, isFetching} = props;
