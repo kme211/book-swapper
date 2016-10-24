@@ -1,15 +1,32 @@
 import React, {PropTypes} from 'react';
-import { StyleSheet, css } from 'aphrodite';
+import styled from 'styled-components';
+
+const Sender = styled.h4`
+  color: red'
+`;
+
+const Body = styled.p`
+  margin: 0.5em 0;
+`;
+
+const Timestamp = styled.p`
+  color: gray;
+  font-size: 0.75em;
+`;
+
+const Wrapper = styled.div`
+  margin-bottom: 1em;
+`;
 
 const Message = (props) => {
   return (
-    <div className={css(styles.message)}>
-      <h4>{props.sender}</h4>
-      <p className={css(styles.body)}>
+    <Wrapper>
+      <Sender>{props.sender}</Sender>
+      <Body>
       {props.body}
-      </p>
-      <p className={css(styles.timestamp)}>{props.timestamp}</p>
-    </div>
+      </Body>
+      <Timestamp>{props.timestamp}</Timestamp>
+    </Wrapper>
   );
 };
 
@@ -19,18 +36,5 @@ Message.propTypes = {
   read: PropTypes.bool.isRequired,
   timestamp: PropTypes.string.isRequired
 };
-
-const styles = StyleSheet.create({
-  message: {
-    marginBottom: '1em'
-  },
-  body: {
-    margin: '0.5em 0'
-  },
-  timestamp: {
-      color: 'gray',
-      fontSize: '0.75em'
-  },
-});
 
 export default Message;
