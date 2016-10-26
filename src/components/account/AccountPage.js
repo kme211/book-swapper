@@ -1,5 +1,21 @@
 import React, { PropTypes } from 'react';
 import {connect} from 'react-redux';
+import Heading from 'components/atoms/Heading';
+import styled from 'styled-components';
+
+const Label = styled.span`
+  font-weight: bolder;
+`;
+
+const Item = styled.div`
+  margin-bottom: 0.5rem;
+`;
+
+const List = styled.ul`
+  margin: 0 0 0 2rem;
+  padding: 0;
+  list-style-type: none;
+`;
 
 class AccountPage extends React.Component {
   constructor(props, context) {
@@ -8,25 +24,34 @@ class AccountPage extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <h2 className="sub-header">Account</h2>
-        <div className="account-info">
-          <div className="account-info__item">
-            <span className="account-info__label">Name:</span> {this.props.user.firstName + ' ' + this.props.user.lastName}
-          </div>
-          <div className="account-info__item">
-            <span className="account-info__label">Email:</span> {this.props.user.email}
-          </div>
-          <div className="account-info__item">
-            <span className="account-info__label">My groups: </span>
-            <ul className="account-info__groups">{this.props.groups.map((group, index) => <li className="account-info__group" key={index}>{group.name}</li>)}</ul>
-          </div>
-          <div className="account-info__item">
-            <span className="account-info__label">My books: </span>
-            <ul className="account-info__books">
+      <div>
+        <Heading level={2}>Account</Heading>
+        <div>
+
+          <Item>
+            <Label>Name: </Label>
+            {this.props.user.firstName + ' ' + this.props.user.lastName}
+          </Item>
+
+          <Item>
+            <Label>Email: </Label>
+            {this.props.user.email}
+          </Item>
+          <Item>
+
+            <Label>My groups: </Label>
+            <List>
+              {this.props.groups.map((group, index) => <li className="account-info__group" key={index}>{group.name}</li>)}
+            </List>
+          </Item>
+
+          <Item>
+            <Label>My books: </Label>
+            <List>
               {this.props.user.books && this.props.user.books.map((book, index) => <li className="account-info__book" key={index}>{book.title}</li>)}
-            </ul>
-          </div>
+            </List>
+          </Item>
+
         </div>
       </div>
     );

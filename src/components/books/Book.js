@@ -27,7 +27,7 @@ export const Title = styled.span`
 `;
 
 export const Author = styled.span`
-  color:  rgb(100, 100, 100);
+  color:  ${colors.grayscale[1]};
   display: block;
 `;
 

@@ -4,6 +4,7 @@ import Loader from '../common/Loader';
 import ConversationRow from './ConversationRow';
 import timeSince from '../../utils/timeSince';
 import pick from 'lodash/pick';
+import Heading from 'components/atoms/Heading';
 
 export class MessagesPage extends React.Component {
   constructor(props, context) {
@@ -42,8 +43,8 @@ export class MessagesPage extends React.Component {
 
   render() {
     return (
-      <div className="container">
-      <h2 className="sub-header">Messages</h2>
+      <div>
+        <Heading level={2}>Messages</Heading>
         {this.renderComponent()}
       </div>
     );
