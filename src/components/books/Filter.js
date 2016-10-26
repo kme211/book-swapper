@@ -6,6 +6,38 @@ import CategoryBrowser from './CategoryBrowser';
 import styled from 'styled-components';
 import Collapse from 'components/organisms/Collapse';
 import Heading from 'components/atoms/Heading';
+import Icon from 'components/atoms/Icon';
+
+const Wrapper = styled.div`
+  width: 100%;
+  margin: 0 0 1rem 0;
+`;
+
+const CategoriesWrapper = styled.ul`
+  list-style-type: none;
+  text-align: center;
+  padding-bottom: 1em;
+  margin-right: 1em;
+`;
+
+const TagsWrapper = styled.ul`
+  list-style-type: none;
+  text-align: center;
+  padding-bottom: 1em;
+  margin: 0 1em;
+`;
+
+const ButtonWrapper = styled.button`
+  height: 2em;
+  margin-bottom: 1em;
+  width: 100%;
+  background-color: ${props => props.active ? '#ccc' : 'white'};
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 1em;
+  transition: background-color 0.4s;
+  cursor: pointer;
+`;
 
 const createCategoryNode = (categories, parentPath, parentId, arr) => {
   if(categories.length) {
@@ -44,21 +76,21 @@ const Filter = (props) => {
   }
 
   return (
-    <div className={wrapperClass}>
-      <button className={buttonClass} onClick={props.onButtonClick}><i className="fa fa-filter" aria-hidden="true"/> Filter</button>
+    <Wrapper>
+      <ButtonWrapper active={props.show} onClick={props.onButtonClick}><Icon icon="filter"/> {props.show ? 'Hide filters' : 'Show filters'}</ButtonWrapper>
       <Collapse isOpen={props.show}>
         <div>
           <Heading level={4}>Categories</Heading>
-          <ul className={contentsClass + '-categories'}>
+          <CategoriesWrapper>
             <CategoryBrowser categories={createCategoryArr(props.categories)} onClick={props.onCategoryClick}/>
-          </ul>
+          </CategoriesWrapper>
           <Heading level={4}>Tags</Heading>
-          <ul className={contentsClass + '-tags'}>
+          <TagsWrapper>
             {props.tags.map((tag, index) => <FilterTag key={index} tag={tag} active={props.filters.tags.find(t => t.tag === tag).show} onClick={props.onTagClick}/>)}
-          </ul>
+          </TagsWrapper>
         </div>
       </Collapse>
-    </div>
+    </Wrapper>
   );
 };
 

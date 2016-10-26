@@ -1,10 +1,22 @@
 import React, { PropTypes } from 'react';
+import styled from 'styled-components';
+import Icon from 'components/atoms/Icon';
+
+const Wrapper = styled.button`
+  font-size: 14px;
+  margin-left: 6px;
+  color: #eee;
+  border: none;
+  background-color: #6C737E;
+  border-radius: 4px;
+  padding: .25em .5em;
+`;
 
 const ExpandCollapseButton = (props) => {
   return (
-    <button className="expand-collapse-btn" onClick={props.onClick}>
-      <i className={"fa fa-chevron-" + props.icon} aria-hidden="true"/>
-    </button>
+    <Wrapper className="expand-collapse-btn" onClick={props.onClick}>
+      <Icon icon={props.icon}/>
+    </Wrapper>
   );
 };
 

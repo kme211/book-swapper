@@ -1,5 +1,26 @@
 import React, { PropTypes } from 'react';
 import ExpandCollapseButton from './ExpandCollapseButton';
+import styled from 'styled-components';
+import { colors, fonts } from 'components/globals';
+import Collapse from 'components/organisms/Collapse';
+import Icon from 'components/atoms/Icon';
+
+const Wrapper = styled.li`
+  list-style-type: none;
+  color: ${colors.grayscale[0]};
+  font-family: ${fonts.primary};
+  cursor: pointer;
+  margin-bottom: 3px;
+  margin-left: 1em;
+`;
+
+const Head = styled.div`
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .25em;
+`;
 
 class CategoryItem extends React.Component {
   constructor(props, context) {
@@ -22,59 +43,45 @@ class CategoryItem extends React.Component {
     const {data, id, name} = this.props;
     const myData = data.find(c => c.id === id);
     const {expanded, selected, parentId} = myData;
-    let childrenSelected;
     let childData = data.filter(c => c.parentId === id);
-    let listClass;
-
-    if(childData.length) {
-      listClass = "categories";
-      if(expanded) {
-        listClass += " show";
-      }
-    }
+    let iconName = 'checkbox-checked';
+    let iconColor;
 
     if(selected && (!childData.length || childData.every(c => c.selected))) {
-      childrenSelected = 'all';
+      iconColor = colors.green;
     } else if(childData.some(c => c.selected)) {
-      childrenSelected = 'some';
+      iconColor = '#00ADB5';
     } else {
-      childrenSelected = 'none';
-    }
-
-    let wrapperClass = "category__name";
-    let iconClass = "fa fa-";
-    if(childrenSelected === 'all') {
-      iconClass += 'check-circle';
-    } else if(childrenSelected === 'some') {
-      iconClass += 'check-circle-o';
-    } else {
-      iconClass += 'circle-o';
-    }
-    if(childrenSelected) {
-      wrapperClass += " selected-" + childrenSelected;
+      iconName = 'checkbox-unchecked';
+      iconColor = '#718CA1';
     }
 
     let childElements = null;
     if(childData.length) {
       childElements = (
-        <ul className={listClass}>
-          {childData.map(c => {
-            let props = Object.assign({}, c, {data: this.props.data, updateCategoryStatus: this.props.updateCategoryStatus});
-            return <CategoryItem key={c.id} {...props}/>;
-          })}
-        </ul>
+        <Collapse isOpen={expanded}>
+          <ul>
+            {childData.map(c => {
+              let props = Object.assign({}, c, {data: this.props.data, updateCategoryStatus: this.props.updateCategoryStatus});
+              return <CategoryItem key={c.id} {...props}/>;
+            })}
+          </ul>
+        </Collapse>
       );
     }
 
 
     return (
-      <li className="category__item">
-        <div className="category__head">
-          <span className={wrapperClass} onClick={this.onNameClick}>{name}<i className={iconClass} aria-hidden="true"/></span>
-          {childElements && <ExpandCollapseButton icon={expanded ? "up" : "down"} onClick={this.onToggleClick} />}
-        </div>
+      <Wrapper className="category__item">
+        <Head className="category__head">
+          <span onClick={this.onNameClick}>
+            <Icon icon={iconName} color={iconColor}/>
+             {name}
+            </span>
+          {childElements && <ExpandCollapseButton icon={expanded ? "circle-up" : "circle-down"} onClick={this.onToggleClick} />}
+        </Head>
         {childElements}
-      </li>
+      </Wrapper>
     );
   }
 }
