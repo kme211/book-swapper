@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 const styles = ({ size, color }) => css`
   display: inline-block;
@@ -17,17 +17,17 @@ const styles = ({ size, color }) => css`
   }
 `;
 
-const Wrapper = styled.span`${styles}`
+const Wrapper = styled.span`${styles}`;
 
 const Icon = ({ icon, ...props }) => {
-  const svg = require(`raw!./icons/${icon}.svg`)
+  const svg = require(`raw!./icons/${icon}.svg`);
   return <Wrapper {...props} dangerouslySetInnerHTML={{ __html: svg }} />
-}
+};
 
 Icon.propTypes = {
   icon: PropTypes.string.isRequired,
   size: PropTypes.number,
   color: PropTypes.string
-}
+};
 
-export default Icon
+export default Icon;
