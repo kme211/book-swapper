@@ -4,6 +4,7 @@ import {getGroupsBooks, getGroupsUsersSelector} from '../../selectors/selectors'
 import coverUrl from '../../utils/bookCoverUrl';
 import Book from './Book';
 import pick from 'lodash/pick';
+import Heading from 'components/atoms/Heading';
 
 export class BookPage extends React.Component {
   constructor(props, context) {
@@ -12,8 +13,8 @@ export class BookPage extends React.Component {
 
   render() {
     return (
-      <div className="container">
-      <h2 className="sub-header">Book detail</h2>
+      <div>
+      <Heading level={2}>Book detail</Heading>
         <Book {...this.props.book} showDetails isFetching={this.props.isFetching} />
       </div>
     );
