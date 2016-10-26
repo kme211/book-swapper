@@ -5,6 +5,13 @@ import ConversationRow from './ConversationRow';
 import timeSince from '../../utils/timeSince';
 import pick from 'lodash/pick';
 import Heading from 'components/atoms/Heading';
+import styled from 'styled-components';
+import { colors } from 'components/globals';
+
+const Table = styled.table`
+border-collapse: collapse;
+width: 100%;
+`;
 
 export class MessagesPage extends React.Component {
   constructor(props, context) {
@@ -16,7 +23,7 @@ export class MessagesPage extends React.Component {
 
   renderComponent() {
     return (
-      <table>
+      <Table>
         <tbody>
           {this.props.conversations.map((c, i) => {
             const lastMessage = c.messages[c.messages.length-1];
@@ -33,7 +40,7 @@ export class MessagesPage extends React.Component {
             );
           })}
         </tbody>
-      </table>
+      </Table>
     );
   }
 

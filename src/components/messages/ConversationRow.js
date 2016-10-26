@@ -1,17 +1,23 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
+import styled from 'styled-components';
+import { colors } from 'components/globals';
 
-const ConversationRow = (props) => {
-  return (
-    <tr>
-      <td>{props.participant} </td>
-      <td><Link to={'message/' + props.id}>{props.subject}</Link> </td>
-      <td>{props.lastMessageBody} </td>
-      <td>{props.lastMessageTimestamp} </td>
-      <td>{props.lastMessageReadStatus}</td>
-    </tr>
-  );
-};
+const Row = styled.tr`
+  background-color: ${props => props.readStatus === 'unread' ? colors.grayscale[6] : colors.grayscale[4]};
+`;
+
+const Cell = styled.td`
+  padding: 0.75em;
+`;
+
+const ConversationRow = (props) => (
+  <Row read={props.lastMessageReadStatus}>
+    <Cell>{props.participant} </Cell>
+    <Cell><Link to={'message/' + props.id}>{props.subject} - {props.lastMessageBody}</Link> </Cell>
+    <Cell>{props.lastMessageTimestamp} </Cell>
+  </Row>
+);
 
 ConversationRow.propTypes = {
   id: PropTypes.string.isRequired,

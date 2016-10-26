@@ -7,6 +7,7 @@ import ConversationRow from './ConversationRow';
 import timeSince from '../../utils/timeSince';
 import {makeGetMessages} from '../../selectors/selectors';
 import Message from './Message';
+import Input from 'components/atoms/Input';
 
 export class MessagePage extends React.Component {
   constructor(props, context) {
@@ -17,21 +18,21 @@ export class MessagePage extends React.Component {
   }
 
   componentWillMount() {
-    console.log('convo id', this.props.params.id);
     this.props.actions.loadConversation(this.props.params.id);
   }
 
   render() {
-    console.log('render', this.props.messages);
     return (
       <div>
         {this.props.messages.map((msg, i) => {
           if(typeof msg === 'string') return;
-          const props = Object.assign({}, msg, {timestamp: timeSince(msg.timestamp)})
+          const props = Object.assign({}, msg, {timestamp: timeSince(msg.timestamp)});
           return (
             <Message key={i} {...props} />
           );
         })}
+
+        <Input type="textarea"/>
       </div>
     );
   }
