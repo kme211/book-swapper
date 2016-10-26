@@ -18,6 +18,26 @@ const LinkWrapper = styled.li`
   display: inline-block;
 `;
 
+const StyledIndexLink = styled(IndexLink)`
+  font-family: ${fonts.primary};
+  display: block;
+  text-decoration: none;
+  color: ${colors.primary[0]};
+  padding: 1rem;
+  border-bottom: 2px solid white;
+  transition: all 0.4s ease;
+
+  &:hover {
+    background-color: #F8F8F8;
+    border-bottom: 2px solid ${colors.secondary[0]};
+  }
+
+  &.active {
+    font-weight: bolder;
+    color: ${colors.secondary[0]};
+  }
+`;
+
 const StyledLink = styled(Link)`
   font-family: ${fonts.primary};
   display: block;
@@ -44,7 +64,7 @@ const Header = () => {
         <Heading level={1}>Book Swapper</Heading>
         <ul role="navigation">
           <LinkWrapper>
-            <StyledLink to="/" activeClassName="active">Home</StyledLink>
+            <StyledIndexLink to="/" activeClassName="active">Home</StyledIndexLink>
           </LinkWrapper>
           <LinkWrapper>
             <StyledLink to="/messages" activeClassName="active">Messages</StyledLink>
