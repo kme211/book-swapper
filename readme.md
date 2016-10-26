@@ -12,6 +12,7 @@ An app I'm working on to share books with neighbors.
 - Add authentication ([Auth0](https://auth0.com/) maybe)
 
 ## In progress
+- Change styles to inline
 - Build out user account/dashboard page
 - Create book detail page
 
