@@ -3,6 +3,9 @@ import FilterTag from './FilterTag';
 import escape from 'lodash/escape';
 import cuid from 'cuid';
 import CategoryBrowser from './CategoryBrowser';
+import styled from 'styled-components';
+import Collapse from 'components/organisms/Collapse';
+import Heading from 'components/atoms/Heading';
 
 const createCategoryNode = (categories, parentPath, parentId, arr) => {
   if(categories.length) {
@@ -43,16 +46,18 @@ const Filter = (props) => {
   return (
     <div className={wrapperClass}>
       <button className={buttonClass} onClick={props.onButtonClick}><i className="fa fa-filter" aria-hidden="true"/> Filter</button>
-      <div className="filter__content">
-        <h4 className="filter__header">Categories</h4>
-        <ul className={contentsClass + '-categories'}>
-          <CategoryBrowser categories={createCategoryArr(props.categories)} onClick={props.onCategoryClick}/>
-        </ul>
-        <h4 className="filter__header">Tags</h4>
-        <ul className={contentsClass + '-tags'}>
-          {props.tags.map((tag, index) => <FilterTag key={index} tag={tag} active={props.filters.tags.find(t => t.tag === tag).show} onClick={props.onTagClick}/>)}
-        </ul>
-      </div>
+      <Collapse isOpen={props.show}>
+        <div>
+          <Heading level={4}>Categories</Heading>
+          <ul className={contentsClass + '-categories'}>
+            <CategoryBrowser categories={createCategoryArr(props.categories)} onClick={props.onCategoryClick}/>
+          </ul>
+          <Heading level={4}>Tags</Heading>
+          <ul className={contentsClass + '-tags'}>
+            {props.tags.map((tag, index) => <FilterTag key={index} tag={tag} active={props.filters.tags.find(t => t.tag === tag).show} onClick={props.onTagClick}/>)}
+          </ul>
+        </div>
+      </Collapse>
     </div>
   );
 };
