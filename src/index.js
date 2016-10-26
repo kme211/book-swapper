@@ -11,8 +11,6 @@ import routes from './routes';
 import { loadUser } from './actions/userActions';
 import { loadGroup } from './actions/groupActions';
 import { loadConversationsForUser } from './actions/conversationActions';
-import './styles/styles.css';
-import 'font-awesome/css/font-awesome.css';
 
 const store = configureStore();
 store.dispatch(loadUser('lamey'));
