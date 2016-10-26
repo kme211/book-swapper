@@ -72,13 +72,13 @@ class CategoryItem extends React.Component {
 
 
     return (
-      <Wrapper className="category__item">
-        <Head className="category__head">
+      <Wrapper>
+        <Head>
           <span onClick={this.onNameClick}>
             <Icon icon={iconName} color={iconColor}/>
              {name}
             </span>
-          {childElements && <ExpandCollapseButton icon={expanded ? "circle-up" : "circle-down"} onClick={this.onToggleClick} />}
+          {childElements && <ExpandCollapseButton icon={expanded ? "angle-up" : "angle-down"} onClick={this.onToggleClick} />}
         </Head>
         {childElements}
       </Wrapper>
