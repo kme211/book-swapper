@@ -4,7 +4,7 @@ import { colors, fonts } from 'components/globals';
 
 const Wrapper = styled.li`
   font-family: ${fonts.primary};
-  background-color: ${props => props.active ? '#44C662' : 'white'};
+  background-color: ${props => props.active ? colors.green : 'white'};
   border-radius: 6px;
   margin: 2px 2px 40px 2px;
   padding: 3px 8px;
