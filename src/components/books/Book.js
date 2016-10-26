@@ -76,13 +76,17 @@ export const Cover = styled.img`
   }
 `;
 
+const StyledLink = styled(Link)`
+  color: ${colors.grayscale[0]};
+`;
+
 const Book = (props) => {
   const {isFetching, id, title, author, industryIdentifiers, desc, tags, availability, link, showDetails} = props;
   let available, tagList, formattedTitle, availabilityElements, book;
   if(!isFetching) {
     available = availability.find((obj) => obj.status.toLowerCase() === "available");
     tagList = tags.map((cat, index) => <li key={index}>{cat}</li>);
-    formattedTitle = showDetails ? title : <Link to={'/book/' + id}>{title}</Link>;
+    formattedTitle = showDetails ? title : <StyledLink to={'/book/' + id}>{title}</StyledLink>;
     availabilityElements = showDetails ? <ul className="book__availability">{availability.map((a, i) => <li key={i} className={"book__status " + (a.status === "available" ? "available" : "not-available")}><Link to={'/user/' + a.owner.id}>{a.owner.firstName}</Link> ({a.status})</li>)}</ul> : <span className={"book__status " + (available ? "available" : "not-available")}>{available ? "Available!" : "Not available"}</span>;
     book = (
       <BookWrapper>
