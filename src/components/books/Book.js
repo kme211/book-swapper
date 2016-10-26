@@ -4,6 +4,7 @@ import coverUrl from 'utils/bookCoverUrl';
 import Loader from 'components/common/Loader';
 import styled from 'styled-components';
 import { colors, fonts } from 'components/globals';
+import Tag from 'components/books/Tag';
 
 export const BookWrapper = styled.div`
   color: ${colors.grayscale[0]};
@@ -36,14 +37,6 @@ export const Tags = styled.ul`
   font-size: .75em;
   list-style: none;
   padding: 0;
-
-  & li {
-    background-color: #E6E6E6;
-    border-radius: 6px;
-    margin: 2px;
-    padding: 3px 8px;
-    display: inline-block;
-  }
 `;
 
 export const Cover = styled.img`
@@ -85,7 +78,7 @@ const Book = (props) => {
   let available, tagList, formattedTitle, availabilityElements, book;
   if(!isFetching) {
     available = availability.find((obj) => obj.status.toLowerCase() === "available");
-    tagList = tags.map((cat, index) => <li key={index}>{cat}</li>);
+    tagList = tags.map((tag, index) => <Tag key={index}>{tag}</Tag>);
     formattedTitle = showDetails ? title : <StyledLink to={'/book/' + id}>{title}</StyledLink>;
     availabilityElements = showDetails ? <ul className="book__availability">{availability.map((a, i) => <li key={i} className={"book__status " + (a.status === "available" ? "available" : "not-available")}><Link to={'/user/' + a.owner.id}>{a.owner.firstName}</Link> ({a.status})</li>)}</ul> : <span className={"book__status " + (available ? "available" : "not-available")}>{available ? "Available!" : "Not available"}</span>;
     book = (
