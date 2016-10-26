@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { colors, fonts } from 'components/globals';
 
 export const BookWrapper = styled.div`
-  font-family: ${fonts.primary};
   color: ${colors.grayscale[0]};
   display: flex;
   flex-direction: row-reverse;
@@ -87,14 +86,14 @@ const Book = (props) => {
     availabilityElements = showDetails ? <ul className="book__availability">{availability.map((a, i) => <li key={i} className={"book__status " + (a.status === "available" ? "available" : "not-available")}><Link to={'/user/' + a.owner.id}>{a.owner.firstName}</Link> ({a.status})</li>)}</ul> : <span className={"book__status " + (available ? "available" : "not-available")}>{available ? "Available!" : "Not available"}</span>;
     book = (
       <BookWrapper>
-        <Meta className="book__meta">
-          <Title className="book__title">{formattedTitle}</Title>
-          <Author className="book__author">{author}</Author>
-          <p className="book__desc">{desc}</p>
+        <Meta>
+          <Title>{formattedTitle}</Title>
+          <Author>{author}</Author>
+          <p>{desc}</p>
           <Tags>{tagList}</Tags>
           {availabilityElements}
         </Meta>
-        <Cover className="book__cover" src={coverUrl({isbn: industryIdentifiers.find(o => o.type === "ISBN_13").identifier, size: 'M'})} alt={title + ' cover'}/>
+        <Cover src={coverUrl({isbn: industryIdentifiers.find(o => o.type === "ISBN_13").identifier, size: 'M'})} alt={title + ' cover'}/>
       </BookWrapper>
     );
   }

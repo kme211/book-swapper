@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import { Link, IndexLink } from 'react-router';
 import Heading from 'components/atoms/Heading';
 import styled, {css} from 'styled-components';
-import {colors, fonts} from 'components/globals';
+import {colors} from 'components/globals';
 
 const Wrapper = styled.header`
 max-width: 1100px;
@@ -19,7 +19,6 @@ const LinkWrapper = styled.li`
 `;
 
 const linkStyle = css`
-  font-family: ${fonts.primary};
   display: block;
   text-decoration: none;
   color: ${colors.primary[0]};

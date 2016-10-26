@@ -1,9 +1,8 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
-import { colors, fonts } from 'components/globals';
+import { colors } from 'components/globals';
 
 const Wrapper = styled.li`
-  font-family: ${fonts.primary};
   background-color: ${props => props.active ? colors.green : 'white'};
   border-radius: 6px;
   margin: 2px 2px 40px 2px;
