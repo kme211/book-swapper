@@ -1,5 +1,11 @@
 import React, { PropTypes } from 'react';
 import CategoryItem from './CategoryItem';
+import styled from 'styled-components';
+
+const Wrapper = styled.ul`
+  list-style-type: none;
+  padding: 0;
+`;
 
 class CategoryBrowser extends React.Component {
   constructor(props, context) {
@@ -53,7 +59,7 @@ class CategoryBrowser extends React.Component {
 
   render() {
     return (
-      <ul className="categories show">
+      <Wrapper>
         {this.state.data.filter(c => c.parentId === null).map(c => {
           return (<CategoryItem
                    key={c.id}
@@ -62,7 +68,7 @@ class CategoryBrowser extends React.Component {
                    updateCategoryStatus={this.categoryClickHandler} />);
         })}
 
-      </ul>
+      </Wrapper>
     );
   }
 }

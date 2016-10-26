@@ -5,6 +5,10 @@ import { colors, fonts } from 'components/globals';
 import Collapse from 'components/organisms/Collapse';
 import Icon from 'components/atoms/Icon';
 
+const List = styled.ul`
+  padding: 0;
+`;
+
 const Wrapper = styled.li`
   list-style-type: none;
   color: ${colors.grayscale[0]};
@@ -60,12 +64,12 @@ class CategoryItem extends React.Component {
     if(childData.length) {
       childElements = (
         <Collapse isOpen={expanded}>
-          <ul>
+          <List>
             {childData.map(c => {
               let props = Object.assign({}, c, {data: this.props.data, updateCategoryStatus: this.props.updateCategoryStatus});
               return <CategoryItem key={c.id} {...props}/>;
             })}
-          </ul>
+          </List>
         </Collapse>
       );
     }

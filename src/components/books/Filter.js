@@ -13,23 +13,23 @@ const Wrapper = styled.div`
   margin: 0 0 1rem 0;
 `;
 
-const CategoriesWrapper = styled.ul`
+const CategoriesWrapper = styled.div`
   list-style-type: none;
   text-align: center;
-  padding-bottom: 1em;
-  margin-right: 1em;
+  padding: 0 0 1em 0;
+  margin: 0 1em 0 0;
 `;
 
-const TagsWrapper = styled.ul`
+const TagsWrapper = styled.div`
   list-style-type: none;
   text-align: center;
-  padding-bottom: 1em;
+  padding: 0 0 1em 0;
   margin: 0 1em;
 `;
 
 const ButtonWrapper = styled.button`
   height: 2em;
-  margin-bottom: 1em;
+  margin: 0 0 1em 0;
   width: 100%;
   background-color: ${props => props.active ? '#ccc' : 'white'};
   border: 1px solid #ccc;
