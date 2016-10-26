@@ -5,6 +5,14 @@ import {getGroupsBooks, getGroupsCategories, getGroupsTags} from '../../selector
 import Book from './Book';
 import Filter from './Filter';
 import truncateText from '../../utils/truncateText';
+import styled from 'styled-components';
+import Heading from 'components/atoms/Heading';
+
+const Wrapper = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
 
 class BookList extends React.Component {
   constructor(props, context) {
@@ -102,7 +110,7 @@ class BookList extends React.Component {
 
     return (
       <div className="container">
-        <h2 className="sub-header">All books</h2>
+        <Heading level={2}>All books</Heading>
         <Filter
           show={this.state.showFilters}
           tags={this.props.tags}
@@ -111,9 +119,9 @@ class BookList extends React.Component {
           onButtonClick={this.onFilterButtonClick}
           onTagClick={this.onFilterTagClick}
           onCategoryClick={this.onFilterCategoryClick}/>
-        <div className="book-list">
+        <Wrapper>
           {books}
-        </div>
+        </Wrapper>
       </div>
 
     );

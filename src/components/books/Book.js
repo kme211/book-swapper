@@ -2,6 +2,80 @@ import React, { PropTypes } from 'react';
 import {Link} from 'react-router';
 import coverUrl from 'utils/bookCoverUrl';
 import Loader from 'components/common/Loader';
+import styled from 'styled-components';
+import { colors, fonts } from 'components/globals';
+
+export const BookWrapper = styled.div`
+  font-family: ${fonts.primary};
+  color: ${colors.grayscale[0]};
+  display: flex;
+  flex-direction: row-reverse;
+  align-content: flex-start;
+  flex: 1 1 auto;
+  margin-bottom: 1em;
+  @media screen and (min-width: 1100px) {
+    flex: 0 1 515px;
+  }
+`;
+
+export const Meta = styled.div`
+  padding: 1em;
+`;
+
+export const Title = styled.span`
+  font-size: 1.5em;
+  font-family: 'Bitter', serif;
+`;
+
+export const Author = styled.span`
+  color:  rgb(100, 100, 100);
+  display: block;
+`;
+
+export const Tags = styled.ul`
+  margin: 6px 0;
+  font-size: .75em;
+  list-style: none;
+  padding: 0;
+
+  & li {
+    background-color: #E6E6E6;
+    border-radius: 6px;
+    margin: 2px;
+    padding: 3px 8px;
+    display: inline-block;
+  }
+`;
+
+export const Cover = styled.img`
+  display: none;
+  @media screen and (min-width: 530px) {
+    display: block;
+    font-family: 'Bitter', serif;
+    position: relative;
+    font-weight: 300;
+    text-align: center;
+    width: 180px;
+    height: 274px;
+    flex-shrink: 0;
+
+    &:after {
+      content: attr(alt) " " "not found";
+      font-size: 16px;
+      color: rgb(100, 100, 100);
+      background-color: rgb(230, 230, 230);
+      border: 2px dotted rgb(200, 200, 200);
+      display: flex;
+      align-items: center;
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+`;
 
 const Book = (props) => {
   const {isFetching, id, title, author, industryIdentifiers, desc, tags, availability, link, showDetails} = props;
@@ -12,16 +86,16 @@ const Book = (props) => {
     formattedTitle = showDetails ? title : <Link to={'/book/' + id}>{title}</Link>;
     availabilityElements = showDetails ? <ul className="book__availability">{availability.map((a, i) => <li key={i} className={"book__status " + (a.status === "available" ? "available" : "not-available")}><Link to={'/user/' + a.owner.id}>{a.owner.firstName}</Link> ({a.status})</li>)}</ul> : <span className={"book__status " + (available ? "available" : "not-available")}>{available ? "Available!" : "Not available"}</span>;
     book = (
-      <div className="book">
-        <div className="book__meta">
-          <span className="book__title">{formattedTitle}</span>
-          <span className="book__author">{author}</span>
+      <BookWrapper>
+        <Meta className="book__meta">
+          <Title className="book__title">{formattedTitle}</Title>
+          <Author className="book__author">{author}</Author>
           <p className="book__desc">{desc}</p>
-          <ul className="book__categories">{tagList}</ul>
+          <Tags>{tagList}</Tags>
           {availabilityElements}
-        </div>
-        <img className="book__cover" src={coverUrl({isbn: industryIdentifiers.find(o => o.type === "ISBN_13").identifier, size: 'M'})} alt={title + ' cover'}/>
-      </div>
+        </Meta>
+        <Cover className="book__cover" src={coverUrl({isbn: industryIdentifiers.find(o => o.type === "ISBN_13").identifier, size: 'M'})} alt={title + ' cover'}/>
+      </BookWrapper>
     );
   }
 
