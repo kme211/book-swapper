@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { colors, fonts } from 'components/globals';
 
 const styles = ({ level }) => css`
-  font-family: ${fonts.primary};
+  font-family: ${fonts.secondary};
   font-weight: 500;
   font-size: ${0.75 + 1 * (1 / level)}rem;
   margin: 0;
