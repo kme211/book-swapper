@@ -100,12 +100,7 @@ const Book = (props) => {
 
   const component = isFetching ? <Loader message="Loading book"/> : book;
 
-  return (
-    <div>
-      {component}
-    </div>
-
-  );
+  return component;
 };
 
 Book.propTypes = {
