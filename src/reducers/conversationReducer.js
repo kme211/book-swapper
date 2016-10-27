@@ -7,6 +7,7 @@ export default function conversationReducer(state = initialState.conversations, 
       return [
         ...state,
         // Don't overwrite conversations that are already in the state (populated with messages)
+        // NOTE: Actually we might want to overwrite them in case there's a new message?
         ...action.conversations.filter(convo => state.findIndex(c => c.id === convo.id) === -1),
       ];
     }
