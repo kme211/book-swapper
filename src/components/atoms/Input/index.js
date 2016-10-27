@@ -30,9 +30,9 @@ const StyledInput = styled.input`${styles}`;
 
 const Input = ({ ...props, type }) => {
   if (type === 'textarea') {
-    return <StyledTextarea {...props} />
+    return <StyledTextarea {...props} />;
   }
-  return <StyledInput {...props} />
+  return <StyledInput {...props} />;
 };
 
 Input.propTypes = {

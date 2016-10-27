@@ -41,7 +41,8 @@ export class MessagePage extends React.Component {
 
 MessagePage.propTypes = {
   actions: PropTypes.object.isRequired,
-  messages: PropTypes.array.isRequired
+  messages: PropTypes.array.isRequired,
+  params: PropTypes.object.isRequired
 };
 
 MessagePage.defaultProps = {

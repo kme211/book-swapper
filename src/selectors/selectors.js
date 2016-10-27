@@ -34,7 +34,6 @@ export const makeGetMessages = () => {
     (id, conversations) => {
       const conversation = conversations.find(convo => convo.id === id);
       if(conversation) {
-        console.log('return messages from selector');
         return conversation.messages;
       }
     }

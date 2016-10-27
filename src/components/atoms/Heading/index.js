@@ -11,10 +11,10 @@ const styles = ({ level }) => css`
   margin-top: ${1 + 0.5 * (1 / level)}rem;
   margin-bottom: ${0.5 + 0.5 * (1 / level)}rem;
   color: ${colors.grayscale[0]};
-`
+`;
 
 const Heading = styled(({ level, children, ...props }) => {
-  return React.createElement(`h${level}`, props, children)
+  return React.createElement(`h${level}`, props, children);
 })`${styles}`;
 
 Heading.propTypes = {
