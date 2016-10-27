@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
-import Icon from 'components/atoms/Icon';
+import Icon from '../atoms/Icon';
 
 const Wrapper = styled.button`
   font-size: 14px;

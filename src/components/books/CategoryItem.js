@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import ExpandCollapseButton from './ExpandCollapseButton';
 import styled from 'styled-components';
-import { colors, fonts } from 'components/globals';
-import Collapse from 'components/organisms/Collapse';
-import Icon from 'components/atoms/Icon';
+import { colors, fonts } from '../globals';
+import Collapse from '../organisms/Collapse';
+import Icon from '../atoms/Icon';
 
 const List = styled.ul`
   padding: 0;

@@ -4,9 +4,9 @@ import escape from 'lodash/escape';
 import cuid from 'cuid';
 import CategoryBrowser from './CategoryBrowser';
 import styled from 'styled-components';
-import Collapse from 'components/organisms/Collapse';
-import Heading from 'components/atoms/Heading';
-import Icon from 'components/atoms/Icon';
+import Collapse from '../organisms/Collapse';
+import Heading from '../atoms/Heading';
+import Icon from '../atoms/Icon';
 
 const Wrapper = styled.div`
   width: 100%;

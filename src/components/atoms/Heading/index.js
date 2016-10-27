@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import styled, { css } from 'styled-components';
 
-import { colors, fonts } from 'components/globals';
+import { colors, fonts } from '../../globals';
 
 const styles = ({ level }) => css`
   font-family: ${fonts.secondary};

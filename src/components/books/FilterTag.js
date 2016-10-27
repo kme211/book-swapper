@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
-import { colors } from 'components/globals';
-import Tag from 'components/books/Tag';
+import { colors } from '../globals';
+import Tag from './Tag';
 
 const Wrapper = styled(Tag)`
   background-color: ${props => props.active ? colors.green : 'white'};

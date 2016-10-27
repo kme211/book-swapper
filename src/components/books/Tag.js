@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
-import { colors } from 'components/globals';
+import { colors } from '../globals';
 
 const Tag = styled.li`
   background-color: ${colors.grayscale[4]};
