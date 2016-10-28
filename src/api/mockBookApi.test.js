@@ -27,6 +27,26 @@ describe('mockBookApi', () => {
     ]
   };
 
+  const testBook2 = {
+    title: 'Not a Book',
+    author: 'Author Unknown',
+    desc: 'This is a fake book, so how could it possibly have a descritpion?',
+    industryIdentifiers: [
+     {
+      "type": "ISBN_10",
+      "identifier": "0123456789"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9870123456789"
+     }
+   ],
+   categories: [
+     "Non Fiction / Humor",
+     "Non Fiction / Humor / General"
+    ]
+  };
+
   describe('getBook', () => {
     it('should return an object when passed an id', (done) => {
       bookApi.getBook('we-need-to-talk').then(book => {
@@ -55,39 +75,40 @@ describe('mockBookApi', () => {
     it('should return a Promise', (done) => {
       const actual = bookApi.saveBook(Object.assign({}, testBook));
       expect(actual).toBeA(Promise);
+      done();
     });
 
     describe('should throw an error if not all required parameters are not passed', () => {
       it('title is required', (done) => {
-        bookApi.saveBook(omit(testBook, 'title')).then(book => {}, err => {
+        bookApi.saveBook(omit(testBook2, 'title')).then(book => {}, err => {
           expect(err).toBe('Book is missing required parameters');
           done();
         });
       });
 
       it('author is required', (done) => {
-        bookApi.saveBook(omit(testBook, 'author')).then(book => {}, err => {
+        bookApi.saveBook(omit(testBook2, 'author')).then(book => {}, err => {
           expect(err).toBe('Book is missing required parameters');
           done();
         });
       });
 
       it('industryIdentifiers is required', (done) => {
-        bookApi.saveBook(omit(testBook, 'industryIdentifiers')).then(book => {}, err => {
+        bookApi.saveBook(omit(testBook2, 'industryIdentifiers')).then(book => {}, err => {
           expect(err).toBe('Book is missing required parameters');
           done();
         });
       });
 
       it('categories is required', (done) => {
-        bookApi.saveBook(omit(testBook, 'categories')).then(book => {}, err => {
+        bookApi.saveBook(omit(testBook2, 'categories')).then(book => {}, err => {
           expect(err).toBe('Book is missing required parameters');
           done();
         });
       });
 
       it('desc is required', (done) => {
-        bookApi.saveBook(omit(testBook, 'desc')).then(book => {}, err => {
+        bookApi.saveBook(omit(testBook2, 'desc')).then(book => {}, err => {
           expect(err).toBe('Book is missing required parameters');
           done();
         });

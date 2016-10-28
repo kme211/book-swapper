@@ -179,7 +179,9 @@ class bookApi {
         if(existingBook) {
           resolve(Object.assign({}, existingBook))
         } else {
-          if(book.title && book.author && book.categories && book.industryIdentifiers && book.desc) {
+          console.log(book);
+          if(book.title && book.author && book.industryIdentifiers &&
+             book.categories && book.desc) {
             let newBook = {
               id: slugifyText(book.title),
               title: book.title,
