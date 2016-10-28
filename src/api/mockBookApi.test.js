@@ -54,7 +54,7 @@ describe('mockBookApi', () => {
 
     it('should return a Promise', (done) => {
       const actual = bookApi.saveBook(Object.assign({}, testBook));
-      expect(actual).toBe(Promise);
+      expect(actual).toBeA(Promise);
     });
 
     describe('should throw an error if not all required parameters are not passed', () => {

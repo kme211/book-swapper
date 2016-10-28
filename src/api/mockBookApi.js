@@ -1,4 +1,5 @@
 import delay from './delay';
+import slugifyText from '../utils/slugifyText';
 
 const books = [
   {
@@ -172,7 +173,46 @@ class bookApi {
   }
 
   static saveBook(book) {
-
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const existingBook = books.find(b => b.title === book.title && b.author === book.author);
+        if(existingBook) {
+          resolve(Object.assign({}, existingBook))
+        } else {
+          if(book.title && book.author && book.categories && book.industryIdentifiers && book.desc) {
+            let newBook = {
+              id: slugifyText(book.title),
+              title: book.title,
+              author: book.author,
+              link: '#',
+              industryIdentifiers: book.industryIdentifiers,
+              categories: book.categories,
+              tags: [],
+              availability: [],
+              desc: book.desc
+            };
+            books.push(newBook);
+            resolve(Object.assign({}, newBook));
+          } else {
+            if(!book.title) {
+              reject('title is required');
+            }
+            if(!book.author) {
+              reject('author is required');
+            }
+            if(!book.categories) {
+              reject('categories is required');
+            }
+            if(!book.industryIdentifiers) {
+              reject('industryIdentifiers is required');
+            }
+            if(!book.desc) {
+              reject('desc is required');
+            }
+          }
+        }
+      }, delay);
+    });
   }
 }
 
