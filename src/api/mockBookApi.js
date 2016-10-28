@@ -194,21 +194,7 @@ class bookApi {
             books.push(newBook);
             resolve(Object.assign({}, newBook));
           } else {
-            if(!book.title) {
-              reject('title is required');
-            }
-            if(!book.author) {
-              reject('author is required');
-            }
-            if(!book.categories) {
-              reject('categories is required');
-            }
-            if(!book.industryIdentifiers) {
-              reject('industryIdentifiers is required');
-            }
-            if(!book.desc) {
-              reject('desc is required');
-            }
+            reject('Book is missing required parameters');
           }
         }
       }, delay);
