@@ -1,4 +1,5 @@
 import delay from './delay';
+import slugifyText from '../utils/slugifyText';
 
 const books = [
   {
@@ -172,7 +173,34 @@ class bookApi {
   }
 
   static saveBook(book) {
-
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const existingBook = books.find(b => b.title === book.title && b.author === book.author);
+        if(existingBook) {
+          resolve(Object.assign({}, existingBook))
+        } else {
+          console.log(book);
+          if(book.title && book.author && book.industryIdentifiers &&
+             book.categories && book.desc) {
+            let newBook = {
+              id: slugifyText(book.title),
+              title: book.title,
+              author: book.author,
+              link: '#',
+              industryIdentifiers: book.industryIdentifiers,
+              categories: book.categories,
+              tags: [],
+              availability: [],
+              desc: book.desc
+            };
+            books.push(newBook);
+            resolve(Object.assign({}, newBook));
+          } else {
+            reject('Book is missing required parameters');
+          }
+        }
+      }, delay);
+    });
   }
 }
 

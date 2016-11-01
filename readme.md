@@ -10,6 +10,7 @@ An app I'm working on to share books with neighbors.
 - Add book requesting/messaging functionality
 - Add MongoDB/Mongoose
 - Add authentication ([Auth0](https://auth0.com/) maybe)
+- Remove the external stylesheets and associated dependencies for them
 
 ## In progress
 - Change styles to inline
@@ -23,3 +24,4 @@ An app I'm working on to share books with neighbors.
 - ~~Add filtering~~
 - ~~Create mock backend~~
 - ~~Add Redux~~
+- ~~Add inline styles~~
