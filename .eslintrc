@@ -13,13 +13,12 @@
     "es6": true,
     "browser": true,
     "node": true,
-    "jquery": true,
     "mocha": true
   },
   "settings": {
     "import/resolver": {
       "webpack": {
-        "config": "webpack.dev.config.js"
+        "config": "webpack.config.dev.js"
       }
     }
   },
