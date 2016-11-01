@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "App for swapping books with neighbors",
   "scripts": {
+    "open:src": "babel-node tools/srcServer.js",
     "test": "mocha --reporter spec tools/testSetup.js --require babel-register \"src/**/*.test.js\"",
-    "dev": "webpack-dev-server --config webpack.dev.config.js --quiet --hot --inline --history-api-fallback",
-    "start": "npm-run-all --parallel dev lint:watch",
-    "lint": "node_modules/.bin/esw webpack.config.* src",
+    "start": "npm-run-all --parallel open:src lint:watch",
+    "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch"
   },
   "author": "Keari Eggers",
@@ -14,6 +14,7 @@
   "repository": "https://github.com/kme211/book-swapper.git",
   "dependencies": {
     "cuid": "^1.3.8",
+    "express": "^4.14.0",
     "font-awesome": "^4.6.3",
     "lodash": "^4.15.0",
     "react": "^15.3.2",
@@ -53,6 +54,7 @@
     "jsdom": "^9.5.0",
     "mocha": "^3.0.2",
     "npm-run-all": "^3.0.0",
+    "open": "0.0.5",
     "postcss-import": "^8.1.2",
     "postcss-loader": "^0.11.1",
     "precss": "^1.4.0",
@@ -62,6 +64,7 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.15.0"
+    "webpack-dev-middleware": "^1.8.4",
+    "webpack-hot-middleware": "^2.13.1"
   }
 }
